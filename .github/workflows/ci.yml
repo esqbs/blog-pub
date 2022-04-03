@@ -24,17 +24,14 @@ jobs:
         uses: actions/setup-node@v1 # 作用：安装nodejs
         with:
           node-version: ${{ matrix.node-version }} # 版本
-      # - name: run deploy.sh # 步骤3
-      #   env: # 设置环境变量
-      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-      #     # CODING_TOKEN: ${{ secrets.CODING_TOKEN }}
-      #   run: npm install && npm run deploy
-
+      - name: Install and Build # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm ci
+          npm run build
       - name: Build and Deploy # 步骤3 （只提交到github可以使用这个步骤）
         uses: JamesIves/github-pages-deploy-action@v4.2.5 # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
-        env: # 设置环境变量
-          ACCESS_TOKEN: ${{ secrets.BLOG_TOKEN }} # toKen私密变量
-          BASE_BRANCH: master # 要部署的文件夹所在的分支.
-          BRANCH: gh-pages # 部署到的分支
-          FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-          BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'esqbs' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
+        with: # 设置环境变量
+          token: ${{ secrets.BLOG_TOKEN }} # toKen私密变量
+          branch: gh-pages # 部署到的分支
+          folder: docs/.vuepress/dist # 要部署的文件夹.
+          clean: true
