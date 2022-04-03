@@ -1,6 +1,7 @@
 const htmlModules = require('./config/htmlModules.js');
 
 module.exports = {
+	base: '/blog-pub/',
 	// theme: 'vdoing', // 使用npm包主题
 	theme: require.resolve('../../vdoing'), // 使用本地主题
 
