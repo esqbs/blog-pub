@@ -6,7 +6,7 @@ module.exports = [
 		items: [
 			// 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
 			{
-				text: '前端文章',
+				text: 'Git',
 				items: [{ text: 'JavaScript', link: '/pages/8143cc480faf9a11/' }],
 			},
 		],
@@ -14,10 +14,7 @@ module.exports = [
 	{
 		text: '日常记录',
 		link: '/record/',
-		items: [
-			{ text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-			{ text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
-		],
+		items: [],
 	},
 	{ text: '关于', link: '/about/' },
 	{
