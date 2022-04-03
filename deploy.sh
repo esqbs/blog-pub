@@ -11,19 +11,20 @@ cd docs/.vuepress/dist
 
 # deploy to github pages
 # echo 'b.esqbs.com' > CNAME
-git init
+
 if [ -z "$BLOG_TOKEN" ]; then
   msg='deploy'
-  githubUrl=git@github.com:esqbs/blog-pub.git
+  githubUrl=git@github.com:esqbs/blog.git
 else
   msg='来自github actions的自动部署'
-  githubUrl=https://esqbs:${BLOG_TOKEN}@github.com:esqbs/blog-pub.git
+  githubUrl=https://esqbs:${BLOG_TOKEN}@github.com:esqbs/blog.git
   git config --global user.name "esqbs"
   git config --global user.email "15227585460@163.com"
 fi
+git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl master # 推送到github gh-pages分支
+git push -f $githubUrl master:gh-pages # 推送到github gh-pages分支
 
 # deploy to coding pages
 # echo 'www.xugaoyi.com\nxugaoyi.com' > CNAME  # 自定义域名
