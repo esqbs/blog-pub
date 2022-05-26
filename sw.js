@@ -4,7 +4,8 @@ let cachesList = [
 ]
 
 self.addEventListener('install', function(e) {
-  // self.skipWaiting()
+  console.log(e, 'install')
+  self.skipWaiting()
   e.waitUtil(
     caches.open(cachesName)
     .then((cache) => cache.addAll(cachesList))
@@ -28,6 +29,7 @@ self.addEventListener('fetch', function(e) {
 })
 
 self.addEventListener('activate', function(e) {
+  console.log(e, 'active')
   let cacheWhitelist = [cachesName];
   e.waitUtil(
     caches.keys()
