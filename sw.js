@@ -1,4 +1,4 @@
-let cachesName = "sw_v1"
+let cachesName = "sw_v2"
 let cachesList = [
   "/index.html"
 ]
