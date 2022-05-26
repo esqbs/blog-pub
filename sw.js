@@ -37,6 +37,7 @@ self.addEventListener('activate', function(e) {
           return caches.delete(key)
         }
       }))
-    }).then(() => self.clients.claim())
+    })
+    // .then(() => self.clients.claim())
   )
 })
