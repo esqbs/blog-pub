@@ -1,15 +1,15 @@
 {
   "name": "esqbs's blog",
-  "short_name": "esqbs",
+  "short_name": "我的博客",
   "description": "博客网站",
   "icons": [
       {
-          "src": "/img/logo.png",
+          "src": "img/logo.png",
           "sizes": "512x512",
           "type": "image/png"
       }
   ],
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "fullscreen",
   "theme_color": "#11a8cd",
   "background_color": "#11a8cd"

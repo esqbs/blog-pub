@@ -27,19 +27,19 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "5f293c3a19397d09b9a2bb695db041aa"
+    "revision": "0272d70852109a90fc06d6b2c8e089a5"
   },
   {
     "url": "about/index.html",
-    "revision": "2e4c2352ea890427884e7f594ada7331"
+    "revision": "adb3fd20f85e444875a6a98f6719afbf"
   },
   {
     "url": "archives/index.html",
-    "revision": "8df8b3fdfd1d13672217cbbfa234e422"
+    "revision": "ddc2edc3923ec590abfde2a21430db86"
   },
   {
-    "url": "assets/css/0.styles.af161ac7.css",
-    "revision": "024cc4b90d375fa0c1e7914642357b88"
+    "url": "assets/css/0.styles.6786b839.css",
+    "revision": "fb930f46caf252fa238b10c040b94a60"
   },
   {
     "url": "assets/img/search.83621669.svg",
@@ -130,12 +130,24 @@ self.__precacheManifest = [
     "revision": "5b117cd3cab9cd23f7b1cff6dcce49c5"
   },
   {
-    "url": "assets/js/app.3086d605.js",
-    "revision": "ab96a364a7b8310e5031a39be29589f2"
+    "url": "assets/js/app.aab8b9f0.js",
+    "revision": "d846f26acdb63b4acd249056df3f8d19"
   },
   {
     "url": "categories/index.html",
-    "revision": "8163314a29f0cb587c9eb6f48ef8ff15"
+    "revision": "208777076d8b0507b2529f07af721de8"
+  },
+  {
+    "url": "font/font_1678482_4tbhmh589x.ttf",
+    "revision": "ecbf9ca3613118c4acd5e7bd468aee45"
+  },
+  {
+    "url": "font/font_1678482_4tbhmh589x.woff",
+    "revision": "87aaacf809e4aed873243ddccdd689a4"
+  },
+  {
+    "url": "font/font_1678482_4tbhmh589x.woff2",
+    "revision": "efcf011105e40923510b9d7888200beb"
   },
   {
     "url": "img/bg.jpeg",
@@ -179,51 +191,51 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "e841d084e809ce52233d08757d15006a"
+    "revision": "76e720aaec9df9f0042650c6c18414b1"
   },
   {
     "url": "note/index.html",
-    "revision": "1fea5fa228c75cad27c2c761984dcb7e"
+    "revision": "2d2f891312438b3a7c1dd06ce8da23a2"
   },
   {
     "url": "pages/131ac1/index.html",
-    "revision": "df7fcca3fb31ace8e7dc02b83e4d4dfe"
+    "revision": "b47b89b2e6a0cbd778380d2051d4ef28"
   },
   {
     "url": "pages/47cf96/index.html",
-    "revision": "0cf1a8d72c6f052e7fb7b34cf3f20da9"
+    "revision": "30d694e39b26a3ff64e095399fa63675"
   },
   {
     "url": "pages/976c5a/index.html",
-    "revision": "807854fbb7644c657ebc94b472346f76"
+    "revision": "33bb6ccd9c3a351619fb8bbdf60d6b81"
   },
   {
     "url": "pages/b53e95/index.html",
-    "revision": "b4db6689f480cf50d878656406be2553"
+    "revision": "4b10be0d84e700d073d5725033c17dab"
   },
   {
     "url": "pages/b8598e/index.html",
-    "revision": "581545e903b0cec63d08c05e04eb72cd"
+    "revision": "b824c42d0aa8e8d8172cbe029c9ad89d"
   },
   {
     "url": "pages/beb6c0/index.html",
-    "revision": "4285fdfc4cdfb50e00dbe7397af094ae"
+    "revision": "83707536f7e6dffd3f2be16d3909fc6c"
   },
   {
     "url": "pages/c6919c/index.html",
-    "revision": "a0c2fef486d7a590f01125e093b3e49e"
+    "revision": "687b71f955fcd2abb5f59bfc890fdb4a"
   },
   {
     "url": "pages/d6fa5d/index.html",
-    "revision": "e4c59148888c78cd081a501dff34f917"
+    "revision": "025eaa664ba49c5a29d9a45109e6bc4a"
   },
   {
     "url": "record/index.html",
-    "revision": "c7bd09dd917477ce70fbfaa626fb8e2b"
+    "revision": "b154eecdbae8f1e451897b915eddbe8c"
   },
   {
     "url": "tags/index.html",
-    "revision": "19ca71386ec20c37a319506b5a8766bc"
+    "revision": "c2afa6b339c12460c24bae0456be6a06"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
