@@ -1,6 +1,6 @@
 let cachesName = "sw_v2"
 let cachesList = [
-  "/index.html"
+  "./index.html"
 ]
 
 self.addEventListener('install', function(e) {
