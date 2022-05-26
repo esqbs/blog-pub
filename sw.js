@@ -1,31 +1,31 @@
-let cachesName = "sw_v1"
+let cachesName = "sw_v2"
 let cachesList = [
   "/index.html"
 ]
 
 self.addEventListener('install', function(e) {
-  console.log('[Service Worker] Install');
   e.waitUtil(
     caches.open(cachesName).then(function(cache) {
-      console.log('[Service Worker] Caching all');
       return cache.addAll(cachesList)
+    }).then(() => {
+      self.skipWaiting()
     })
   )
 })
 
 self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(r) {
-      console.log('[Service Worker] Fetching resource: '+e.request.url);
-      return r || fetch(e.request).then(function(response) {
-        return caches.open(cachesName).then(function(cache) {
-          console.log('[Service Worker] Caching new resource: '+e.request.url);
-          cache.put(e.request, response.clone())
-          return response
+  if(e.request.url.startWith(self.location.origin)) {
+    e.respondWith(
+      caches.match(e.request).then(function(r) {
+        return r || fetch(e.request).then(function(response) {
+          return caches.open(cachesName).then(function(cache) {
+            cache.put(e.request, response.clone())
+            return response
+          })
         })
       })
-    })
-  )
+    )
+  }
 })
 
 self.addEventListener('activate', function(e) {
@@ -37,6 +37,10 @@ self.addEventListener('activate', function(e) {
           return caches.delete(key)
         }
       }))
-    })
+    }).then(
+      () => {
+        self.clients.claim()
+      }
+    )
   )
 })
