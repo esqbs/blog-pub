@@ -4,7 +4,7 @@
   "description": "博客网站",
   "icons": [
       {
-          "src": "img/logo.png",
+          "src": "img/avatar.png",
           "sizes": "512x512",
           "type": "image/png"
       }
