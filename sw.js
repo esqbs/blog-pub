@@ -1,13 +1,13 @@
-let cachesName = "sw_v1"
+let cachesName = "sw_v2"
 let cachesList = [
   "/index.html"
 ]
 
 self.addEventListener('install', function(e) {
+  self.skipWaiting()
   e.waitUtil(
     caches.open(cachesName)
     .then((cache) => cache.addAll(cachesList))
-    .then(self.skipWaiting())
   )
 })
 
