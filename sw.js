@@ -4,7 +4,7 @@ let cachesList = [
 ]
 
 self.addEventListener('install', function(e) {
-  self.skipWaiting()
+  // self.skipWaiting()
   e.waitUtil(
     caches.open(cachesName)
     .then((cache) => cache.addAll(cachesList))
