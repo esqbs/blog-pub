@@ -1,4 +1,4 @@
-let cachesName = "sw_v3"
+let cachesName = "sw_v4"
 let cachesList = [
   "/index.html"
 ]
@@ -12,7 +12,7 @@ self.addEventListener('install', function(e) {
 })
 
 self.addEventListener('fetch', function(e) {
-  if(e.request.url.startWith(self.location.origin)) {
+  if(e.request.url.startsWith(self.location.origin)) {
     e.respondWith(
       caches.match(e.request)
       .then(function(r) {
