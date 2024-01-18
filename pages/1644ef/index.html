@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>shell脚本 | Esqbs&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog-pub/img/favicon.ico">
+    <link rel="manifest" href="/blog-pub/manifest.json">
+    <link rel="apple-touch-icon" href="/blog-pub/img/avatar.png">
+    <meta name="description" content="个人博客">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="个人博客">
+    <meta name="theme-color" content="#F9648D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/blog-pub/assets/css/0.styles.9d611ad1.css" as="style"><link rel="preload" href="/blog-pub/assets/js/app.b54a84d7.js" as="script"><link rel="preload" href="/blog-pub/assets/js/2.d3978339.js" as="script"><link rel="preload" href="/blog-pub/assets/js/3.3ba4034a.js" as="script"><link rel="preload" href="/blog-pub/assets/js/42.85eb831d.js" as="script"><link rel="prefetch" href="/blog-pub/assets/js/10.7045eeaf.js"><link rel="prefetch" href="/blog-pub/assets/js/11.179e54ba.js"><link rel="prefetch" href="/blog-pub/assets/js/12.75195318.js"><link rel="prefetch" href="/blog-pub/assets/js/13.bd81b27f.js"><link rel="prefetch" href="/blog-pub/assets/js/14.fa8d16fa.js"><link rel="prefetch" href="/blog-pub/assets/js/15.4a1a888f.js"><link rel="prefetch" href="/blog-pub/assets/js/16.47f6153b.js"><link rel="prefetch" href="/blog-pub/assets/js/17.47ed404c.js"><link rel="prefetch" href="/blog-pub/assets/js/18.ddef768d.js"><link rel="prefetch" href="/blog-pub/assets/js/19.c649bbd9.js"><link rel="prefetch" href="/blog-pub/assets/js/20.e83e9082.js"><link rel="prefetch" href="/blog-pub/assets/js/21.8897dc92.js"><link rel="prefetch" href="/blog-pub/assets/js/22.e9f86a07.js"><link rel="prefetch" href="/blog-pub/assets/js/23.1bdb44b2.js"><link rel="prefetch" href="/blog-pub/assets/js/24.0b5f3921.js"><link rel="prefetch" href="/blog-pub/assets/js/25.4642efd4.js"><link rel="prefetch" href="/blog-pub/assets/js/26.0814f796.js"><link rel="prefetch" href="/blog-pub/assets/js/27.bad0794c.js"><link rel="prefetch" href="/blog-pub/assets/js/28.e2d6b796.js"><link rel="prefetch" href="/blog-pub/assets/js/29.c3bd83bd.js"><link rel="prefetch" href="/blog-pub/assets/js/30.1026b4a3.js"><link rel="prefetch" href="/blog-pub/assets/js/31.a7ba59f4.js"><link rel="prefetch" href="/blog-pub/assets/js/32.10e4e44f.js"><link rel="prefetch" href="/blog-pub/assets/js/33.f2fe6896.js"><link rel="prefetch" href="/blog-pub/assets/js/34.fff1ec23.js"><link rel="prefetch" href="/blog-pub/assets/js/35.cf46d647.js"><link rel="prefetch" href="/blog-pub/assets/js/36.8fd58218.js"><link rel="prefetch" href="/blog-pub/assets/js/37.618d9081.js"><link rel="prefetch" href="/blog-pub/assets/js/38.eb83eea4.js"><link rel="prefetch" href="/blog-pub/assets/js/39.26c16fc7.js"><link rel="prefetch" href="/blog-pub/assets/js/4.ede9cfba.js"><link rel="prefetch" href="/blog-pub/assets/js/40.9f25e7b6.js"><link rel="prefetch" href="/blog-pub/assets/js/41.f90d94c5.js"><link rel="prefetch" href="/blog-pub/assets/js/43.093a080f.js"><link rel="prefetch" href="/blog-pub/assets/js/44.2288e425.js"><link rel="prefetch" href="/blog-pub/assets/js/45.2a12b7c6.js"><link rel="prefetch" href="/blog-pub/assets/js/46.c62bb40c.js"><link rel="prefetch" href="/blog-pub/assets/js/47.720a93c7.js"><link rel="prefetch" href="/blog-pub/assets/js/48.dabe585e.js"><link rel="prefetch" href="/blog-pub/assets/js/49.cd517e33.js"><link rel="prefetch" href="/blog-pub/assets/js/5.c55c9766.js"><link rel="prefetch" href="/blog-pub/assets/js/50.955aa7ac.js"><link rel="prefetch" href="/blog-pub/assets/js/51.054ca7b8.js"><link rel="prefetch" href="/blog-pub/assets/js/52.3eaf02b1.js"><link rel="prefetch" href="/blog-pub/assets/js/53.7a30eeee.js"><link rel="prefetch" href="/blog-pub/assets/js/54.367b551d.js"><link rel="prefetch" href="/blog-pub/assets/js/6.265c445f.js"><link rel="prefetch" href="/blog-pub/assets/js/7.41ea435b.js"><link rel="prefetch" href="/blog-pub/assets/js/8.45309f22.js"><link rel="prefetch" href="/blog-pub/assets/js/9.7a365615.js">
+    <link rel="stylesheet" href="/blog-pub/assets/css/0.styles.9d611ad1.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog-pub/" class="home-link router-link-active"><img src="/blog-pub/img/logo.png" alt="Esqbs's blog" class="logo"> <span class="site-name can-hide">Esqbs's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog-pub/" class="nav-link">首页</a></div><div class="nav-item"><a href="/blog-pub/note/" class="nav-link">学习笔记</a></div><div class="nav-item"><a href="/blog-pub/record/" class="nav-link">日常记录</a></div><div class="nav-item"><a href="/blog-pub/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/blog-pub/pages/beb6c0/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog-pub/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog-pub/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog-pub/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog-pub/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/blog-pub/img/avatar.jpg"> <div class="blogger-info"><h3>Esqbs</h3> <span>日积月累</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog-pub/" class="nav-link">首页</a></div><div class="nav-item"><a href="/blog-pub/note/" class="nav-link">学习笔记</a></div><div class="nav-item"><a href="/blog-pub/record/" class="nav-link">日常记录</a></div><div class="nav-item"><a href="/blog-pub/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/blog-pub/pages/beb6c0/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog-pub/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog-pub/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog-pub/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog-pub/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebApi</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Typescript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具类</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>bug记录</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Electron</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PWA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>图形学</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>监控上报</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>无障碍和兼容性</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>代码检查</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>测试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Linux</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog-pub/pages/97d582/" class="sidebar-link">shell</a></li><li><a href="/blog-pub/pages/1644ef/" aria-current="page" class="active sidebar-link">shell脚本</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog-pub/pages/1644ef/#基础脚本" class="sidebar-link">基础脚本</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#创建脚本" class="sidebar-link">创建脚本</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#显示消息" class="sidebar-link">显示消息</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#使用变量" class="sidebar-link">使用变量</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#命令替换" class="sidebar-link">命令替换</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#重定向输入输出" class="sidebar-link">重定向输入输出</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#管道" class="sidebar-link">管道</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#数学运算" class="sidebar-link">数学运算</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#退出脚本" class="sidebar-link">退出脚本</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog-pub/pages/1644ef/#结构化命令" class="sidebar-link">结构化命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#if-then语句" class="sidebar-link">if-then语句</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#case-语句" class="sidebar-link">case 语句</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#for-语句" class="sidebar-link">for 语句</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#while-语句" class="sidebar-link">while 语句</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#until-语句" class="sidebar-link">until 语句</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#循环控制" class="sidebar-link">循环控制</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog-pub/pages/1644ef/#用户输入" class="sidebar-link">用户输入</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#传递参数" class="sidebar-link">传递参数</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#移动参数" class="sidebar-link">移动参数</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#处理参数" class="sidebar-link">处理参数</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#获取用户输入" class="sidebar-link">获取用户输入</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog-pub/pages/1644ef/#数据输出" class="sidebar-link">数据输出</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#命令行中重定向" class="sidebar-link">命令行中重定向</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#脚本中重定向" class="sidebar-link">脚本中重定向</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#列出打开的文件描述符" class="sidebar-link">列出打开的文件描述符</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#抑制命令输出" class="sidebar-link">抑制命令输出</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#使用临时文件" class="sidebar-link">使用临时文件</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#记录消息" class="sidebar-link">记录消息</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#csv转sql" class="sidebar-link">csv转sql</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog-pub/pages/1644ef/#脚本控制" class="sidebar-link">脚本控制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#处理信号" class="sidebar-link">处理信号</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#以后台模式运行脚本" class="sidebar-link">以后台模式运行脚本</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#在非控制台下运行脚本" class="sidebar-link">在非控制台下运行脚本</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#作业控制" class="sidebar-link">作业控制</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#调整谦让度" class="sidebar-link">调整谦让度</a></li><li class="sidebar-sub-header level3"><a href="/blog-pub/pages/1644ef/#定时运行作业" class="sidebar-link">定时运行作业</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据库</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>后端</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper bg-style-6"><div class="articleInfo-wrap" data-v-d5e9d2e6><div class="articleInfo" data-v-d5e9d2e6><ul class="breadcrumbs" data-v-d5e9d2e6><li data-v-d5e9d2e6><a href="/blog-pub/" title="首页" class="iconfont icon-home router-link-active" data-v-d5e9d2e6></a></li> <li data-v-d5e9d2e6><a href="/blog-pub/note/#学习笔记" data-v-d5e9d2e6>学习笔记</a></li><li data-v-d5e9d2e6><a href="/blog-pub/note/#Linux" data-v-d5e9d2e6>Linux</a></li></ul> <div class="info" data-v-d5e9d2e6><div title="作者" class="author iconfont icon-touxiang" data-v-d5e9d2e6><a href="javascript:;" data-v-d5e9d2e6>Esqbs</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-d5e9d2e6><a href="javascript:;" data-v-d5e9d2e6>2023-12-31</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">shell脚本<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="基础脚本"><a href="#基础脚本" class="header-anchor">#</a> 基础脚本</h2> <h3 id="创建脚本"><a href="#创建脚本" class="header-anchor">#</a> 创建脚本</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">touch</span> my_shell.sh
+$ <span class="token function">chmod</span> u+x my_shell.sh
+$ <span class="token function">vim</span> my_shell.sh
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#this is a test shell</span>
+<span class="token function">date</span>
+<span class="token function">who</span>
+$ ./my_shell.sh
+</code></pre></div><h3 id="显示消息"><a href="#显示消息" class="header-anchor">#</a> 显示消息</h3> <p>echo命令可用单引号或双引号来划定字符串</p> <p>-n 字符串和命令输出显示在同一行</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#this is a test shell</span>
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;The time and date are:&quot;</span>
+<span class="token function">date</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Let's see who's logged into the system:&quot;</span>
+<span class="token function">who</span>
+</code></pre></div><h3 id="使用变量"><a href="#使用变量" class="header-anchor">#</a> 使用变量</h3> <h4 id="使用环境变量"><a href="#使用环境变量" class="header-anchor">#</a> 使用环境变量</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh
+<span class="token comment">#!/bin/bash</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;User info for userid: <span class="token environment constant">$USER</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token environment constant">UID</span><span class="token builtin class-name">:</span> <span class="token environment constant">$UID</span>
+<span class="token builtin class-name">echo</span> <span class="token environment constant">HOME</span><span class="token builtin class-name">:</span> <span class="token environment constant">$HOME</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The cost of the item is \<span class="token variable">$15</span>&quot;</span> <span class="token comment"># $需要转义</span>
+</code></pre></div><h4 id="使用自定义变量"><a href="#使用自定义变量" class="header-anchor">#</a> 使用自定义变量</h4> <ul><li>字母、数字或下划线组成的字符串</li> <li>长度不能超过20个字符</li> <li>区分大小写</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">days</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;root checked in <span class="token variable">$days</span> days ago&quot;</span>
+</code></pre></div><h3 id="命令替换"><a href="#命令替换" class="header-anchor">#</a> 命令替换</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">today</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%y%m%d<span class="token variable">)</span></span>
+<span class="token function">ls</span> /usr/bin <span class="token parameter variable">-al</span> <span class="token operator">&gt;</span> log.<span class="token variable">$today</span>
+</code></pre></div><blockquote><p>命令替换会创建出子shell来运行指定命令，这是由运行脚本的shell所生成的一个独立的shell。因此，在子shell中运行的命令无法使用脚本中的变量</p></blockquote> <h3 id="重定向输入输出"><a href="#重定向输入输出" class="header-anchor">#</a> 重定向输入输出</h3> <h4 id="输出重定向"><a href="#输出重定向" class="header-anchor">#</a> 输出重定向</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#输出文件已存在，则重定向运算符会用新数据覆盖已有的文件</span>
+<span class="token function">date</span> <span class="token operator">&gt;</span> log
+<span class="token comment">#用双大于号（&gt;&gt;）来追加数据</span>
+<span class="token function">date</span> <span class="token operator">&gt;&gt;</span> log2
+</code></pre></div><h4 id="输入重定向"><a href="#输入重定向" class="header-anchor">#</a> 输入重定向</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment"># wc命令可以统计数据中的文本, 输出行数、单词数、字节数</span>
+<span class="token function">wc</span> <span class="token operator">&lt;</span> log
+<span class="token comment"># 内联输入重定向（inline input redirection）。这种方法无须使用文件进行重定向，只需在命令行中指定用于输入重定向的数据即可</span>
+<span class="token function">wc</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+11111
+22222
+EOF</span>
+</code></pre></div><h3 id="管道"><a href="#管道" class="header-anchor">#</a> 管道</h3> <blockquote><p>Linux系统会同时运行这两个命令，在系统内部将二者连接起来。当第一个命令产生输出时，它会被立即传给第二个命令。数据传输不会用到任何中间文件或缓冲区</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">ls</span> <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">|</span> <span class="token function">more</span>
+</code></pre></div><h3 id="数学运算"><a href="#数学运算" class="header-anchor">#</a> 数学运算</h3> <blockquote><p>bash shell的数学运算符只支持整数运算</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var1</span><span class="token operator">=</span><span class="token number">100</span>
+<span class="token assign-left variable">var2</span><span class="token operator">=</span><span class="token number">50</span>
+<span class="token assign-left variable">var3</span><span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$var1</span> + <span class="token variable">$var2</span><span class="token punctuation">]</span>
+<span class="token builtin class-name">echo</span> The result is <span class="token variable">$var3</span>
+</code></pre></div><table><thead><tr><th>运算符</th> <th>描述</th></tr></thead> <tbody><tr><td>ARG1 | ARG2</td> <td>如果ARG1既不为null也不为0，就返回ARG1；否则返回ARG2</td></tr> <tr><td>ARG1 &amp; ARG2</td> <td>如果ARG1和ARG2都不为null或0，就返回ARG1；否则返回0</td></tr> <tr><td>ARG1 &lt; ARG2</td> <td>如果ARG1小于ARG2，就返回1；否则返回0</td></tr> <tr><td>ARG1 &lt;= ARG2</td> <td>如果ARG1小于或等于ARG2，就返回1；否则返回0</td></tr> <tr><td>ARG1 = ARG2</td> <td>如果ARG1等于ARG2，就返回1；否则返回0</td></tr> <tr><td>ARG1 != ARG2</td> <td>如果ARG1不等于ARG2，就返回1；否则返回0</td></tr> <tr><td>ARG1 &gt;= ARG2</td> <td>如果ARG1大于或等于ARG2，就返回1；否则返回0</td></tr> <tr><td>ARG1 &gt; ARG2</td> <td>如果ARG1大于ARG2，就返回1；否则返回0</td></tr> <tr><td>ARG1 + ARG2</td> <td>和</td></tr> <tr><td>ARG1 - ARG2</td> <td>差</td></tr> <tr><td>ARG1 * ARG2</td> <td>积</td></tr> <tr><td>ARG1 / ARG2</td> <td>商</td></tr> <tr><td>ARG1 % ARG2</td> <td>余数</td></tr> <tr><td>STRING : REGEXP</td> <td>如果REGEXP模式匹配STRING，就返回该匹配模式的内容</td></tr> <tr><td>match STRING REGEXP</td> <td>如果REGEXP模式匹配STRING，就返回该匹配模式的内容</td></tr> <tr><td>substr STRING POS LENGTH</td> <td>返回起始位置为POS（从1开始计数）、长度为LENGTH的子串</td></tr> <tr><td>index STRING CHARS</td> <td>返回CHARS在字符串STIRNG中所处的位置，否则返回0</td></tr> <tr><td>length STRING</td> <td>返回字符串STRING的长度</td></tr> <tr><td>+ TOKEN</td> <td>将TOKEN解释成字符串，即使TOKEN属于关键字</td></tr> <tr><td>(EXPRESSION)</td> <td>返回EXPRESSION的值</td></tr></tbody></table> <h4 id="浮点数解决方案"><a href="#浮点数解决方案" class="header-anchor">#</a> 浮点数解决方案</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var1</span><span class="token operator">=</span><span class="token number">10.46</span>
+<span class="token assign-left variable">var2</span><span class="token operator">=</span><span class="token number">43.67</span>
+<span class="token assign-left variable">var3</span><span class="token operator">=</span><span class="token number">33.2</span>
+<span class="token assign-left variable">var4</span><span class="token operator">=</span><span class="token number">71</span>
+
+<span class="token assign-left variable">var5</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">bc</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+scale = 4
+a1=(<span class="token variable">$var1</span>*<span class="token variable">$var2</span>)
+b1=(<span class="token variable">$var3</span>*<span class="token variable">$var4</span>)
+a1+b1
+EOF</span>
+<span class="token variable">)</span></span>
+
+<span class="token builtin class-name">echo</span> The result is <span class="token variable">$var5</span>
+</code></pre></div><h3 id="退出脚本"><a href="#退出脚本" class="header-anchor">#</a> 退出脚本</h3> <ul><li><p>Linux提供了专门的变量$?来保存最后一个已执行命令的退出状态码</p></li> <li><p>exit命令允许在脚本结束时指定一个退出状态码</p></li></ul> <table><thead><tr><th>状态码</th> <th>描述</th></tr></thead> <tbody><tr><td>0</td> <td>命令成功结束</td></tr> <tr><td>1</td> <td>一般性未知错误</td></tr> <tr><td>2</td> <td>不适合的shell命令</td></tr> <tr><td>126</td> <td>命令无法执行</td></tr> <tr><td>127</td> <td>没有找到命令</td></tr> <tr><td>128</td> <td>无效的退出参数</td></tr> <tr><td>128 + x</td> <td>与Linux信号x相关的严重错误</td></tr> <tr><td>130</td> <td>通过Ctrl+C终止的命令</td></tr> <tr><td>255</td> <td>正常范围之外的退出状态码</td></tr></tbody></table> <h2 id="结构化命令"><a href="#结构化命令" class="header-anchor">#</a> 结构化命令</h2> <h3 id="if-then语句"><a href="#if-then语句" class="header-anchor">#</a> if-then语句</h3> <ul><li><p>bash shell的if语句会运行if之后的命令。如果该命令的退出状态码为0，那么位于then部分的命令就会被执行</p></li> <li><p>test命令可以在if-then语句中测试不同的条件。如果test命令中列出的条件成立，那么test命令就会退出并返回退出状态码0</p></li> <li><p>如果不写test命令的condition部分，则它会以非0的退出状态码退出并执行else代码块语句</p></li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+<span class="token comment"># 可以写成 if [ $var ]</span>
+<span class="token keyword">if</span> <span class="token builtin class-name">test</span> <span class="token variable">$var</span>
+<span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The var variable has content and returns a True&quot;</span>
+<span class="token keyword">else</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The var variable has doesn't hava content&quot;</span>
+<span class="token keyword">fi</span>
+</code></pre></div><h4 id="test-数值比较"><a href="#test-数值比较" class="header-anchor">#</a> test 数值比较</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">6</span>
+<span class="token comment"># 比较运算符 eq ge gt le lt ne</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$var</span> <span class="token parameter variable">-lt</span> <span class="token number">10</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The var variable has content and returns a True&quot;</span>
+<span class="token keyword">else</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The var variable has doesn't hava content&quot;</span>
+<span class="token keyword">fi</span>
+
+</code></pre></div><h4 id="test-字符串比较"><a href="#test-字符串比较" class="header-anchor">#</a> test 字符串比较</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var</span><span class="token operator">=</span>Str
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$var</span> <span class="token punctuation">\</span><span class="token operator">&gt;</span> str <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The var variable has content and returns a True&quot;</span>
+<span class="token keyword">else</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;The var variable has doesn't hava content&quot;</span>
+<span class="token keyword">fi</span>
+</code></pre></div><ul><li><p>比较运算符<code>= != &lt; &gt; -n -z</code></p></li> <li><p>大于和小于需要转义，<code>\&gt; \&lt;</code></p></li> <li><p>-n str 检查str的长度是否不为0；-z str 检查str的长度是否为0</p></li> <li><p>大于和小于使用的是标准的Unicode顺序。sort命令使用的是系统的语言环境设置中定义的排序顺序。对于英语，语言环境设置指定了在排序顺序中小写字母出现在大写字母之前</p></li> <li><p>空变量和未初始化的变量会对shell脚本测试造成灾难性的影响。如果不确定变量的内容，那么最好在将其用于数值或字符串比较之前先通过-n或-z来测试一下变量是否为空</p></li></ul> <h4 id="test-文件比较"><a href="#test-文件比较" class="header-anchor">#</a> test 文件比较</h4> <table><thead><tr><th>比较</th> <th>描述</th></tr></thead> <tbody><tr><td>-d file</td> <td>检查是否存在且为目录</td></tr> <tr><td>-e file</td> <td>检查是否存在</td></tr> <tr><td>-f file</td> <td>检查是否存在且为文件</td></tr> <tr><td>-r file</td> <td>检查是否存在且可读</td></tr> <tr><td>-s file</td> <td>检查是否存在且非空</td></tr> <tr><td>-w file</td> <td>检查是否存在且可写</td></tr> <tr><td>-x file</td> <td>检查是否存在且可执行</td></tr> <tr><td>-O file</td> <td>检查是否存在且属于当前用户</td></tr> <tr><td>-G file</td> <td>检查是否存在且默认组与当前用户相同</td></tr> <tr><td>file1 -nt file2</td> <td>检查file1是否比file2新</td></tr> <tr><td>file1 -ot file2</td> <td>检查file1是否比file2旧</td></tr></tbody></table> <h4 id="复合条件"><a href="#复合条件" class="header-anchor">#</a> 复合条件</h4> <ul><li>[ condition1 ] &amp;&amp; [ condition2 ]</li> <li>[ condition1 ] || [ condition2 ]</li></ul> <h4 id="if-then的高级特性"><a href="#if-then的高级特性" class="header-anchor">#</a> if-then的高级特性</h4> <p><strong>使用单括号</strong></p> <p>单括号允许在if语句中使用子shell</p> <p><strong>使用双括号</strong></p> <p>双括号命令允许在比较过程中使用高级数学表达式</p> <p><strong>使用双方括号</strong></p> <p>双方括号命令提供了针对字符串比较的高级特性</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> <span class="token parameter variable">-n</span> ./my_shell.sh 
+     <span class="token number">1</span>	<span class="token comment">#!/bin/bash</span>
+     <span class="token number">2</span>	<span class="token comment"># checks system for popular package managers</span>
+     <span class="token number">3</span>	<span class="token comment">#</span>
+     <span class="token number">4</span>	<span class="token comment">############################# User Introduction ################################</span>
+     <span class="token number">5</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;##########################################################################&quot;</span>
+     <span class="token number">6</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;this script checks your Linux system for popular&quot;</span>
+     <span class="token number">7</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;package managers and application containers, lists &quot;</span>
+     <span class="token number">8</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;what's available, and makes an educated guess on your &quot;</span>
+     <span class="token number">9</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;distribution's base distro (Red Hat or Debian).&quot;</span>
+    <span class="token number">10</span>	<span class="token builtin class-name">echo</span>
+    <span class="token number">11</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;##########################################################################&quot;</span>
+    <span class="token number">12</span>	<span class="token comment">#</span>
+    <span class="token number">13</span>	<span class="token comment">############################ Red Hat Checks ####################################</span>
+    <span class="token number">14</span>	<span class="token comment">#</span>
+    <span class="token number">15</span>	<span class="token builtin class-name">echo</span>
+    <span class="token number">16</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Checking for Red Hat-based package managers &amp; application contianers...&quot;</span>
+    <span class="token number">17</span>	<span class="token comment">#####</span>
+    <span class="token number">18</span>	<span class="token keyword">if</span> <span class="token punctuation">(</span>which <span class="token function">rpm</span> <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">19</span>	<span class="token keyword">then</span> 
+    <span class="token number">20</span>	<span class="token assign-left variable">item_rpm</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">21</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the basic rpm urility&quot;</span>
+    <span class="token number">22</span>	<span class="token keyword">else</span>
+    <span class="token number">23</span>	<span class="token assign-left variable">item_rpm</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token number">24</span>	<span class="token keyword">fi</span>
+    <span class="token number">25</span>	<span class="token comment">#####</span>
+    <span class="token number">26</span>	<span class="token keyword">if</span> <span class="token punctuation">(</span>which dnf <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">27</span>	<span class="token keyword">then</span> 
+    <span class="token number">28</span>	<span class="token assign-left variable">item_dnfyum</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">29</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the dnf package manager&quot;</span>
+    <span class="token number">30</span>	<span class="token keyword">elif</span> <span class="token punctuation">(</span>which yum <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">31</span>	<span class="token keyword">then</span>
+    <span class="token number">32</span>	<span class="token assign-left variable">item_dnfyum</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">33</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the yum package manager&quot;</span>
+    <span class="token number">34</span>	<span class="token keyword">else</span>
+    <span class="token number">35</span>	<span class="token assign-left variable">item_dnfyum</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token number">36</span>	<span class="token keyword">fi</span>
+    <span class="token number">37</span>	<span class="token comment">#####</span>
+    <span class="token number">38</span>	<span class="token keyword">if</span> <span class="token punctuation">(</span>which flatpak <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">39</span>	<span class="token keyword">then</span>
+    <span class="token number">40</span>	<span class="token assign-left variable">item_flatpak</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">41</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the flatpak application container&quot;</span>
+    <span class="token number">42</span>	<span class="token keyword">else</span> 
+    <span class="token number">43</span>	<span class="token assign-left variable">item_flatpak</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token number">44</span>	<span class="token keyword">fi</span>
+    <span class="token number">45</span>	<span class="token comment">#####</span>
+    <span class="token number">46</span>	<span class="token assign-left variable">redhatscore</span><span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$item_rpm</span> + <span class="token variable">$item_dnfyum</span> + <span class="token variable">$item_flatpak</span><span class="token punctuation">]</span>
+    <span class="token number">47</span>	<span class="token comment">########################### Debian Checks #######################################</span>
+    <span class="token number">48</span>	<span class="token builtin class-name">echo</span>
+    <span class="token number">49</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Checking for Debian-based package managers &amp; application containers...&quot;</span>
+    <span class="token number">50</span>	<span class="token comment">#####</span>
+    <span class="token number">51</span>	<span class="token keyword">if</span> <span class="token punctuation">(</span>which dpkg <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">52</span>	<span class="token keyword">then</span>
+    <span class="token number">53</span>	<span class="token assign-left variable">item_dpkg</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">54</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the basic dpkg utility&quot;</span>
+    <span class="token number">55</span>	<span class="token keyword">else</span>
+    <span class="token number">56</span>	<span class="token assign-left variable">item_dpkg</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token number">57</span>	<span class="token keyword">fi</span>
+    <span class="token number">58</span>	<span class="token comment">#####</span>
+    <span class="token number">59</span>	<span class="token keyword">if</span> <span class="token punctuation">(</span>which <span class="token function">apt</span> <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">60</span>	<span class="token keyword">then</span>
+    <span class="token number">61</span>	<span class="token assign-left variable">item_apt</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">62</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the apt package manager&quot;</span>
+    <span class="token number">63</span>	<span class="token keyword">elif</span> <span class="token punctuation">(</span>which <span class="token function">apt-get</span> <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">64</span>	<span class="token keyword">then</span>
+    <span class="token number">65</span>	<span class="token assign-left variable">item_apt</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">66</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the apt-get/apt-cache package manager&quot;</span>
+    <span class="token number">67</span>	<span class="token keyword">else</span>
+    <span class="token number">68</span>	<span class="token assign-left variable">item_apt</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token number">69</span>	<span class="token keyword">fi</span>
+    <span class="token number">70</span>	<span class="token comment">#####</span>
+    <span class="token number">71</span>	<span class="token keyword">if</span> <span class="token punctuation">(</span>which snap <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">)</span>
+    <span class="token number">72</span>	<span class="token keyword">then</span>
+    <span class="token number">73</span>	<span class="token assign-left variable">item_snap</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token number">74</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;You hava the snap application container&quot;</span>
+    <span class="token number">75</span>	<span class="token keyword">else</span> 
+    <span class="token number">76</span>	<span class="token assign-left variable">item_snap</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token number">77</span>	<span class="token keyword">fi</span>
+    <span class="token number">78</span>	<span class="token comment">#####</span>
+    <span class="token number">79</span>	<span class="token assign-left variable">debianscore</span><span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$item_dpkg</span> + <span class="token variable">$item_apt</span> + <span class="token variable">$item_snap</span><span class="token punctuation">]</span>
+    <span class="token number">80</span>	<span class="token comment">######################### Determine Distro ######################################</span>
+    <span class="token number">81</span>	<span class="token builtin class-name">echo</span>
+    <span class="token number">82</span>	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$redhatscore</span> <span class="token parameter variable">-gt</span> <span class="token variable">$debianscore</span> <span class="token punctuation">]</span>
+    <span class="token number">83</span>	<span class="token keyword">then</span>
+    <span class="token number">84</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Most likely your Linux distribution is Red Hat-based&quot;</span>
+    <span class="token number">85</span>	<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$debianscore</span> <span class="token parameter variable">-gt</span> <span class="token variable">$redhatscore</span> <span class="token punctuation">]</span>
+    <span class="token number">86</span>	<span class="token keyword">then</span>
+    <span class="token number">87</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Most likely your Linux distrubution is Debian-based&quot;</span>
+    <span class="token number">88</span>	<span class="token keyword">else</span>
+    <span class="token number">89</span>	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Unable to determine Linux distribution base&quot;</span>
+    <span class="token number">90</span>	<span class="token keyword">fi</span>
+    <span class="token number">91</span>	<span class="token comment">#################################################################################</span>
+    <span class="token number">92</span>	<span class="token builtin class-name">exit</span>
+</code></pre></div><h3 id="case-语句"><a href="#case-语句" class="header-anchor">#</a> case 语句</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">case</span> <span class="token environment constant">$USER</span> <span class="token keyword">in</span>
+test1<span class="token punctuation">)</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;test1&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+test2 <span class="token operator">|</span> test3<span class="token punctuation">)</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;test2 | test3&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+*<span class="token punctuation">)</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;other&quot;</span>
+<span class="token keyword">esac</span>
+
+</code></pre></div><h3 id="for-语句"><a href="#for-语句" class="header-anchor">#</a> for 语句</h3> <p>使用转义字符（反斜线）将单引号转义</p> <p>使用双引号来定义含有单引号的值</p> <p>for命令使用空格来划      分列表中的每个值。如果某个值含有空格，则必须将其放入双引号内</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">test</span> <span class="token keyword">in</span> <span class="token string">&quot;New Hampshire&quot;</span> <span class="token string">&quot;New Mexico&quot;</span> <span class="token string">&quot;New York&quot;</span>
+<span class="token keyword">do</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Now going to <span class="token variable">$test</span>&quot;</span>
+<span class="token keyword">done</span>
+
+$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable"><span class="token environment constant">IFS</span>.OLD</span><span class="token operator">=</span><span class="token environment constant">$IFS</span> <span class="token comment">#IFS变量代表字段分隔符</span>
+<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token string">$'<span class="token entity" title="\n">\n</span>'</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">entry</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> /etc/passwd<span class="token variable">)</span></span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Values in <span class="token variable">$entry</span> --&quot;</span>
+	<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span>:
+	<span class="token keyword">for</span> <span class="token for-or-select variable">value</span> <span class="token keyword">in</span> <span class="token variable">$entry</span>
+	<span class="token keyword">do</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;	<span class="token variable">$value</span>&quot;</span>
+	<span class="token keyword">done</span>
+<span class="token keyword">done</span> <span class="token operator">&gt;</span> test.txt <span class="token comment">#输出到文件</span>
+<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token environment constant">$IFS</span>.OLD
+
+$ <span class="token function">cat</span> ./my_shell.sh
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment"># finding files in the PATH</span>
+<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span>:
+<span class="token keyword">for</span> <span class="token for-or-select variable">folder</span> <span class="token keyword">in</span> <span class="token environment constant">$PATH</span>
+<span class="token keyword">do</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$folder</span>:&quot;</span>
+   <span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token variable">$folder</span>/*
+   <span class="token keyword">do</span>
+      <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-x</span> <span class="token string">&quot;<span class="token variable">$file</span>&quot;</span> <span class="token punctuation">]</span> <span class="token comment">#目录名和文件名中可能包含空格</span>
+      <span class="token keyword">then</span>
+         <span class="token builtin class-name">echo</span> <span class="token string">&quot;   <span class="token variable">$file</span>&quot;</span>
+      <span class="token keyword">fi</span>
+   <span class="token keyword">done</span>
+<span class="token keyword">done</span>
+$
+
+$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">))</span></span> 
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;The next number is <span class="token variable">$i</span>&quot;</span>
+<span class="token keyword">done</span>
+</code></pre></div><h3 id="while-语句"><a href="#while-语句" class="header-anchor">#</a> while 语句</h3> <blockquote><p>while命令允许在while语句行定义多个测试命令。只有最后一个测试命令的退出状态码会被用于决定是否结束循环</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$var</span> <span class="token parameter variable">-gt</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token variable">$var</span>
+	<span class="token assign-left variable">var</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$var</span>-1 <span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+</code></pre></div><h3 id="until-语句"><a href="#until-语句" class="header-anchor">#</a> until 语句</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token keyword">until</span> <span class="token punctuation">[</span> <span class="token variable">$var</span> <span class="token parameter variable">-lt</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token variable">$var</span>
+	<span class="token assign-left variable">var</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$var</span>-1 <span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+</code></pre></div><h3 id="循环控制"><a href="#循环控制" class="header-anchor">#</a> 循环控制</h3> <ul><li><p><code>break n</code> 跳出n层循环</p></li> <li><p><code>continue n</code></p></li></ul> <h2 id="用户输入"><a href="#用户输入" class="header-anchor">#</a> 用户输入</h2> <h3 id="传递参数"><a href="#传递参数" class="header-anchor">#</a> 传递参数</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">sh_name</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span> <span class="token function">basename</span> $0 <span class="token variable">)</span></span>
+<span class="token builtin class-name">echo</span> This script name is <span class="token variable">$sh_name</span>
+<span class="token builtin class-name">echo</span> The first parameter is <span class="token variable">$1</span>
+<span class="token builtin class-name">echo</span> The second parameter is <span class="token variable">$2</span>
+<span class="token builtin class-name">echo</span> The number of parameters is <span class="token variable">$#</span>
+<span class="token builtin class-name">echo</span> The last parameter is <span class="token variable">${<span class="token operator">!</span><span class="token operator">#</span>}</span>
+<span class="token builtin class-name">echo</span> The paramters is <span class="token variable">$*</span>
+<span class="token builtin class-name">echo</span> The paramters are <span class="token variable">$@</span>
+</code></pre></div><ul><li>$#含有脚本运行时携带的命令行参数的个数，${!#}返回最后一个参数</li> <li>当命令行中没有任何参数时，$#的值即为0，但${!#}会返回命令行中的脚本名</li> <li>$*变量会将所有参数视为单个参数，而$@变量会单独处理每个参数</li> <li>如果脚本需要的命令行参数不止9个，在第9个位置变量之后，必须在变量名两侧加上花括号，比如${10}</li></ul> <h3 id="移动参数"><a href="#移动参数" class="header-anchor">#</a> 移动参数</h3> <p>在使用shift命令时，默认情况下会将每个位置的变量值都向左移动一个位置，变量$0的值不会改变；</p> <p><code>shift n</code> 会将每个位置的变量值都向左移动n个位置</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Parameter #<span class="token variable">$count</span> = <span class="token variable">$1</span>&quot;</span>
+	<span class="token assign-left variable">count</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$count</span> + <span class="token number">1</span><span class="token punctuation">]</span>
+	<span class="token builtin class-name">shift</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">exit</span>
+
+$ ./my_shell.sh <span class="token string">&quot;111&quot;</span> <span class="token string">&quot;222&quot;</span> <span class="token string">&quot;333&quot;</span>
+Parameter <span class="token comment">#1 = 111</span>
+Parameter <span class="token comment">#2 = 222</span>
+Parameter <span class="token comment">#3 = 333</span>
+</code></pre></div><h3 id="处理参数"><a href="#处理参数" class="header-anchor">#</a> 处理参数</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token builtin class-name">set</span> -- <span class="token variable"><span class="token variable">$(</span>getopt <span class="token parameter variable">-q</span> ab:cd <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span><span class="token variable">)</span></span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+	<span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token keyword">in</span> 
+		-a<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Found the -a option&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		-b<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Found the -b option with parameter value <span class="token variable">$2</span>&quot;</span>
+			<span class="token builtin class-name">shift</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		-c<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Found the -c option&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		--<span class="token punctuation">)</span> <span class="token builtin class-name">shift</span>
+			<span class="token builtin class-name">break</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		*<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$1</span> is not option&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	<span class="token keyword">esac</span>
+	<span class="token builtin class-name">shift</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span>
+<span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">param</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Paramter #<span class="token variable">$count</span>:<span class="token variable">$param</span>&quot;</span>
+	<span class="token assign-left variable">count</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$count</span> + <span class="token number">1</span> <span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">exit</span>
+
+$ ./my_shell.sh <span class="token parameter variable">-a</span> <span class="token parameter variable">-b</span> <span class="token number">12</span> <span class="token parameter variable">-c</span> -- <span class="token number">11</span> <span class="token number">22</span> <span class="token number">33</span>
+Found the <span class="token parameter variable">-a</span> option
+Found the <span class="token parameter variable">-b</span> option with parameter value <span class="token string">'12'</span>
+Found the <span class="token parameter variable">-c</span> option
+
+Paramter <span class="token comment">#1:'11'</span>
+Paramter <span class="token comment">#2:'22'</span>
+Paramter <span class="token comment">#3:'33'</span>
+</code></pre></div><ul><li>set命令有一个选项是双连字符（--），可以将位置变量的值替换成set命令所指定的值</li> <li>getopt命令：在每个需要参数值的选项字母后面加一个冒号；</li> <li>getopt命令：未包含指定选项，默认情况下，会产生一条错误消息，-q 忽略错误消息</li> <li>getopt命令并不能处理带空格和引号的参数值，getopts 可以</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">getopts</span> :ab:cd opt
+<span class="token keyword">do</span>
+	<span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$opt</span>&quot;</span> <span class="token keyword">in</span> 
+		a<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Found the -a option&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		b<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Found the -b option with parameter value <span class="token variable">$OPTARG</span>&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		c<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Found the -c option&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		*<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$opt</span> is not option&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	<span class="token keyword">esac</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">shift</span> $<span class="token punctuation">[</span> <span class="token environment constant">$OPTIND</span> - <span class="token number">1</span> <span class="token punctuation">]</span>
+
+<span class="token builtin class-name">echo</span>
+<span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">param</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Paramter #<span class="token variable">$count</span>:<span class="token variable">$param</span>&quot;</span>
+	<span class="token assign-left variable">count</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$count</span> + <span class="token number">1</span> <span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">exit</span>
+
+$ ./my_shell.sh <span class="token parameter variable">-a</span> <span class="token parameter variable">-b</span> <span class="token number">12</span> <span class="token parameter variable">-c</span> <span class="token number">11</span> <span class="token number">22</span> <span class="token number">33</span>
+Found the <span class="token parameter variable">-a</span> option
+Found the <span class="token parameter variable">-b</span> option with parameter value <span class="token number">12</span>
+Found the <span class="token parameter variable">-c</span> option
+
+Paramter <span class="token comment">#1:11</span>
+Paramter <span class="token comment">#2:22</span>
+Paramter <span class="token comment">#3:33</span>
+
+</code></pre></div><ul><li>OPTARG环境变量保存参数值；OPTIND环境变量保存正在处理的参数位置</li></ul> <h3 id="获取用户输入"><a href="#获取用户输入" class="header-anchor">#</a> 获取用户输入</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">if</span> <span class="token builtin class-name">read</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token parameter variable">-t</span> <span class="token number">10</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;Do you want to continue [Y/N]?&quot;</span> answer
+<span class="token keyword">then</span>
+	<span class="token keyword">case</span> <span class="token variable">$answer</span> <span class="token keyword">in</span>
+		Y <span class="token operator">|</span> y <span class="token punctuation">)</span> <span class="token builtin class-name">echo</span>
+	       		<span class="token builtin class-name">echo</span> <span class="token string">&quot;continue&quot;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		N <span class="token operator">|</span> n <span class="token punctuation">)</span> <span class="token builtin class-name">echo</span>
+	       		<span class="token builtin class-name">echo</span> <span class="token string">&quot;goodbye&quot;</span>
+			<span class="token builtin class-name">exit</span><span class="token punctuation">;</span><span class="token punctuation">;</span>	
+	<span class="token keyword">esac</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is the end of the script&quot;</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">else</span>
+	<span class="token builtin class-name">echo</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;timeout&quot;</span>
+<span class="token keyword">fi</span>
+</code></pre></div><ul><li>-t选项会指定read命令等待输入的秒数，如果超时，返回非0退出状态码</li> <li>-n当字符数达到预设值时，就自动退出</li></ul> <p><strong>使用ping命令或ping6命令测试网络连通性</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment"># Check systems on local network allowing for </span>
+<span class="token comment"># a variety of input methods</span>
+<span class="token comment">#</span>
+<span class="token comment">#</span>
+<span class="token comment">############## determine Input Method ##################</span>
+<span class="token comment">#</span>
+<span class="token comment">#</span>
+<span class="token comment"># Check for command-line options here using getopts</span>
+<span class="token comment"># if none, then go on to File Input Method</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">getopts</span> t: opt
+<span class="token keyword">do</span>
+	<span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$opt</span>&quot;</span> <span class="token keyword">in</span>
+		t<span class="token punctuation">)</span> <span class="token comment">#Fount the -t option</span>
+			<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$OPTARG</span> <span class="token operator">=</span> <span class="token string">&quot;IPv4&quot;</span> <span class="token punctuation">]</span>
+			<span class="token keyword">then</span>
+				<span class="token assign-left variable">pingcommand</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> <span class="token function">ping</span><span class="token variable">)</span></span>
+			<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$OPTARG</span> <span class="token operator">=</span> <span class="token string">&quot;IPv6&quot;</span> <span class="token punctuation">]</span>
+			<span class="token keyword">then</span>
+				<span class="token assign-left variable">pingcommand</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> ping6<span class="token variable">)</span></span>
+			<span class="token keyword">else</span>
+				<span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: -t IPv4 or -t IPv6&quot;</span>
+				<span class="token builtin class-name">echo</span> <span class="token string">&quot;Exiting script...&quot;</span>
+				<span class="token builtin class-name">exit</span>
+			<span class="token keyword">fi</span>
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>
+		*<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: -t IPv4 or -t IPv6&quot;</span>
+			<span class="token builtin class-name">echo</span> <span class="token string">&quot;Exiting script...&quot;</span>
+		       	<span class="token builtin class-name">exit</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	<span class="token keyword">esac</span>	
+
+	<span class="token builtin class-name">shift</span> $<span class="token punctuation">[</span> <span class="token environment constant">$OPTIND</span> - <span class="token number">1</span> <span class="token punctuation">]</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$#</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+	<span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;IP Address parameters are missing&quot;</span>
+		<span class="token builtin class-name">echo</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;Exiting script...&quot;</span>
+		<span class="token builtin class-name">exit</span>
+	<span class="token keyword">fi</span>
+
+	<span class="token keyword">for</span> <span class="token for-or-select variable">ipaddress</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span>
+	<span class="token keyword">do</span>
+		<span class="token builtin class-name">echo</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;Checking system at <span class="token variable">$ipaddress</span>...&quot;</span>
+		<span class="token builtin class-name">echo</span>
+		<span class="token variable">$pingcommand</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-c</span> <span class="token number">3</span> <span class="token variable">$ipaddress</span>
+		<span class="token builtin class-name">echo</span>
+	<span class="token keyword">done</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">done</span>
+
+<span class="token comment">##################### File Input Method #####################</span>
+<span class="token builtin class-name">echo</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Please enter the file name with an absolute directory reference...&quot;</span>
+<span class="token builtin class-name">echo</span>
+
+<span class="token assign-left variable">choice</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$choice</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">read</span> <span class="token parameter variable">-t</span> <span class="token number">60</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;Enter name of file:&quot;</span> filename
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token variable">$filename</span><span class="token punctuation">]</span>
+	<span class="token keyword">then</span>
+		<span class="token assign-left variable">quitanswer</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+		<span class="token builtin class-name">read</span> <span class="token parameter variable">-t</span> <span class="token number">10</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;Quit script [Y/N]?&quot;</span> quitanswer
+		<span class="token keyword">case</span> <span class="token variable">$quitanswer</span> <span class="token keyword">in</span> 
+			Y <span class="token operator">|</span> y<span class="token punctuation">)</span> 	<span class="token builtin class-name">echo</span>
+				<span class="token builtin class-name">echo</span> <span class="token string">&quot;Quitting script...&quot;</span>
+				<span class="token builtin class-name">exit</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+			N <span class="token operator">|</span> n<span class="token punctuation">)</span> 	<span class="token builtin class-name">echo</span>
+				<span class="token builtin class-name">echo</span> <span class="token string">&quot;please answer question:&quot;</span>
+				<span class="token assign-left variable">choice</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+			*<span class="token punctuation">)</span> 	<span class="token builtin class-name">echo</span>
+			       	<span class="token builtin class-name">echo</span> <span class="token string">&quot;No response. Quitting script...&quot;</span>
+				<span class="token builtin class-name">exit</span><span class="token punctuation">;</span><span class="token punctuation">;</span>	
+		<span class="token keyword">esac</span>
+	<span class="token keyword">else</span>
+		<span class="token assign-left variable">choice</span><span class="token operator">=</span><span class="token number">1</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token variable">$filename</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span> <span class="token parameter variable">-r</span> <span class="token variable">$filename</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$filename</span> is a file, is readable, and is not empty.&quot;</span>
+	<span class="token builtin class-name">echo</span>
+	<span class="token function">cat</span> <span class="token variable">$filename</span> <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+	<span class="token keyword">do</span>
+		<span class="token assign-left variable">ipaddress</span><span class="token operator">=</span><span class="token variable">$line</span>
+		<span class="token builtin class-name">read</span> line
+		<span class="token assign-left variable">iptype</span><span class="token operator">=</span><span class="token variable">$line</span>
+		<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$iptype</span> <span class="token operator">=</span> <span class="token string">&quot;IPv4&quot;</span> <span class="token punctuation">]</span>
+		<span class="token keyword">then</span>
+			<span class="token assign-left variable">pingcommand</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> <span class="token function">ping</span><span class="token variable">)</span></span>
+		<span class="token keyword">else</span>
+			<span class="token assign-left variable">pingcommand</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> ping6<span class="token variable">)</span></span>
+		<span class="token keyword">fi</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;Checking system at <span class="token variable">$ipaddress</span>...&quot;</span>
+		<span class="token variable">$pingcommand</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-c</span> <span class="token number">3</span> <span class="token variable">$ipaddress</span>
+		<span class="token builtin class-name">echo</span>
+	<span class="token keyword">done</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Fineshed processing the file. All systems checked.&quot;</span>
+<span class="token keyword">else</span>
+	<span class="token builtin class-name">echo</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$filename</span> is either not a file, is empty, or is&quot;</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;not readable. Exiting script...&quot;</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">exit</span>
+</code></pre></div><h2 id="数据输出"><a href="#数据输出" class="header-anchor">#</a> 数据输出</h2> <blockquote><ul><li>Linux系统会将每个对象当作文件来处理，包括输入和输出。Linux用文件描述符来标识每个文件对象。文件描述符是一个非负整数，唯一会标识的是会话中打开的文件</li> <li>bash shell保留了前3个文件描述符（0 STDIN、1 STDOUT和2 STDERR）</li> <li>输入重定向符（&lt;），重定向指定的文件替换标准输入文件描述符</li> <li>输出重定向符（&gt;），将所有输出重定向到指定的文件；（&gt;&gt;） 将数据追加到某个文件</li> <li>默认情况下，STDERR和STDOUT指向同一个地方</li></ul></blockquote> <h3 id="命令行中重定向"><a href="#命令行中重定向" class="header-anchor">#</a> 命令行中重定向</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">ls</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> stdout.txt <span class="token comment">#重定向正常输出</span>
+$ <span class="token function">ls</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> stderr.txt <span class="token comment">#重定向错误消息</span>
+$ <span class="token function">ls</span> <span class="token operator">&amp;&gt;</span> std.txt <span class="token comment">#重定向正常输出和错误消息</span>
+</code></pre></div><h3 id="脚本中重定向"><a href="#脚本中重定向" class="header-anchor">#</a> 脚本中重定向</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment"># 临时重定向</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is an error message&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;2</span>
+
+<span class="token comment"># 永久重定向</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>err.txt
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is an error message&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;2</span>
+
+<span class="token comment"># 重定向输入</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>input.txt
+<span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Line <span class="token variable">$count</span>: <span class="token variable">$line</span>&quot;</span>
+	<span class="token assign-left variable">count</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$count</span> + <span class="token number">1</span> <span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+
+<span class="token comment"># 创建输出重定向</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">3</span>&gt;</span>test3.txt
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This should be stored in the test3.txt&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;3</span>
+
+<span class="token comment"># 重定向然后恢复</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">3</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>test1.txt
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This should be stored in the test1.txt&quot;</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token file-descriptor important">&amp;3</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is a normal message&quot;</span>
+
+<span class="token comment"># 关闭文件描述符</span>
+<span class="token builtin class-name">exec</span> <span class="token operator"><span class="token file-descriptor important">3</span>&gt;&amp;</span>-
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is a test line of data&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;3</span>
+</code></pre></div><h3 id="列出打开的文件描述符"><a href="#列出打开的文件描述符" class="header-anchor">#</a> 列出打开的文件描述符</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">lsof</span> <span class="token parameter variable">-a</span> <span class="token parameter variable">-p</span> <span class="token variable">$$</span> <span class="token parameter variable">-d</span> <span class="token number">0,1</span>,2
+</code></pre></div><ul><li>lsof命令会列出整个Linux系统打开的所有文件描述符，这包括所有后台进程以及登录用户打开的文件</li> <li>-p指定进程ID, $$指进程的当前PID</li> <li>-d指定要显示的文件描述符编号</li> <li>-a选项执行AND运算</li></ul> <h3 id="抑制命令输出"><a href="#抑制命令输出" class="header-anchor">#</a> 抑制命令输出</h3> <p>在Linux系统中，null文件的标准位置是/dev/null。重定向到该位置的任何数据都会被丢弃</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">ls</span> <span class="token parameter variable">-al</span> <span class="token operator">&gt;</span> /dev/null
+</code></pre></div><p>快速清除现有文件中的数据</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> /dev/null <span class="token operator">&gt;</span> err.txt
+</code></pre></div><h3 id="使用临时文件"><a href="#使用临时文件" class="header-anchor">#</a> 使用临时文件</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ mktemp temp.XXXXXX <span class="token comment"># 在当前文件夹创建临时文件</span>
+$ mktemp <span class="token parameter variable">-t</span> temp.XXXXXX <span class="token comment"># 在/tmp文件夹创建临时文件</span>
+$ mktemp <span class="token parameter variable">-d</span> dir.XXXXXX <span class="token comment"># 创建临时文件夹</span>
+</code></pre></div><h3 id="记录消息"><a href="#记录消息" class="header-anchor">#</a> 记录消息</h3> <p>tee命令能将来自STDIN的数据同时送往STDOUT和tee命令行所指定的文件名</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">date</span> <span class="token operator">|</span> <span class="token function">tee</span> temp.txt
+</code></pre></div><h3 id="csv转sql"><a href="#csv转sql" class="header-anchor">#</a> csv转sql</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> ./my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">outfile</span><span class="token operator">=</span><span class="token string">&quot;user.sql&quot;</span>
+<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token string">&quot;,&quot;</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> name age address
+<span class="token keyword">do</span>
+<span class="token function">cat</span> <span class="token operator">&gt;&gt;</span> <span class="token variable">$outfile</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+INSERT INTO user (name, age, address) VALUES ('<span class="token variable">$name</span>', '<span class="token variable">$age</span>', '<span class="token variable">$address</span>');
+EOF</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token variable">${1}</span>
+</code></pre></div><h2 id="脚本控制"><a href="#脚本控制" class="header-anchor">#</a> 脚本控制</h2> <h3 id="处理信号"><a href="#处理信号" class="header-anchor">#</a> 处理信号</h3> <blockquote><p>Ctrl+C组合键会生成SIGINT信号（中断进程）</p> <p>Ctrl+Z组合键会生成SIGTSTP信号，停止shell中运行的任何进程（暂停进程）</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">cat</span> my_shell.sh 
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token builtin class-name">trap</span> <span class="token string">&quot;echo 'Sorry! Trapped Ctrl-C'&quot;</span> SIGINT <span class="token comment">#捕获SIGINT</span>
+<span class="token builtin class-name">trap</span> <span class="token string">&quot;&quot;</span> SIGINT <span class="token comment">#完全忽略SIGINT信号</span>
+<span class="token builtin class-name">trap</span> <span class="token string">&quot;echo 'exiting...'&quot;</span> EXIT <span class="token comment">#捕获脚本退出</span>
+<span class="token builtin class-name">trap</span> -- SIGINT <span class="token comment">#恢复默认</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is a test script&quot;</span>
+<span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$count</span> <span class="token parameter variable">-le</span> <span class="token number">5</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;Loop #<span class="token variable">$count</span>&quot;</span>
+	<span class="token function">sleep</span> <span class="token number">1</span>
+	<span class="token assign-left variable">count</span><span class="token operator">=</span>$<span class="token punctuation">[</span> <span class="token variable">$count</span> + <span class="token number">1</span> <span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;This is the end of test script&quot;</span>
+<span class="token builtin class-name">exit</span>
+
+</code></pre></div><h3 id="以后台模式运行脚本"><a href="#以后台模式运行脚本" class="header-anchor">#</a> 以后台模式运行脚本</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ ./my_shell.sh <span class="token operator">&amp;</span>
+</code></pre></div><blockquote><p>终端会话退出，后台进程也会随之退出</p></blockquote> <h3 id="在非控制台下运行脚本"><a href="#在非控制台下运行脚本" class="header-anchor">#</a> 在非控制台下运行脚本</h3> <blockquote><p>nohup命令能阻断发给特定进程的SIGHUP信号。当退出终端会话时，这可以避免进程退出</p> <p>nohup命令会自动将STDOUT和STDERR产生的消息重定向到nohup.out文件中</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">nohup</span> ./my_shell.sh <span class="token operator">&amp;</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">186008</span>
+</code></pre></div><h3 id="作业控制"><a href="#作业控制" class="header-anchor">#</a> 作业控制</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">jobs</span>
+<span class="token comment"># + 代表默认作业 - 代表下一个默认作业，+ - 都只有一个</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>+  运行中               ./my_shell.sh <span class="token operator">&amp;</span>
+
+$ <span class="token function">bg</span> <span class="token number">2</span> <span class="token comment"># 以后台模式重启作业</span>
+$ <span class="token function">fg</span> <span class="token number">2</span> <span class="token comment"># 以前台模式重启作业</span>
+</code></pre></div><h3 id="调整谦让度"><a href="#调整谦让度" class="header-anchor">#</a> 调整谦让度</h3> <blockquote><p>-20（最低值）代表最高优先级，+19（最高值）代表最低优先级，默认0</p> <p>nice命令会阻止普通用户提高命令的优先级</p> <p>只有root用户或者特权用户才能提高作业的优先级</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">nice</span> <span class="token parameter variable">-n</span> <span class="token number">10</span> ./my_shell.sh <span class="token operator">&amp;</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">187567</span>
+$ <span class="token function">ps</span> <span class="token parameter variable">-p</span> <span class="token number">187567</span> <span class="token parameter variable">-l</span>
+F S   <span class="token environment constant">UID</span>     PID    <span class="token environment constant">PPID</span>  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+<span class="token number">0</span> S  <span class="token number">1000</span>  <span class="token number">187567</span>  <span class="token number">105373</span>  <span class="token number">0</span>  <span class="token number">90</span>  <span class="token number">10</span> -  <span class="token number">3299</span> do_wai pts/0    00:00:00 my_shell.sh
+</code></pre></div><blockquote><p>renice命令会自动更新运行进程的调度优先级</p> <p>只能对属主为自己的进程使用renice且只能降低调度优先级</p> <p>root用户和特权用户可以使用renice命令对任意进程的优先级做任意调整</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">renice</span> <span class="token parameter variable">-n</span> <span class="token number">15</span> <span class="token parameter variable">-p</span> <span class="token number">187567</span>
+</code></pre></div><h3 id="定时运行作业"><a href="#定时运行作业" class="header-anchor">#</a> 定时运行作业</h3> <h4 id="使用at命令调度作业"><a href="#使用at命令调度作业" class="header-anchor">#</a> 使用at命令调度作业</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>$ at <span class="token parameter variable">-M</span> <span class="token parameter variable">-f</span> ./my_shell.sh now <span class="token comment">#-M 禁止作业产生的输出信息 -f 指定文件 -q 指定作业队列优先级 a~z A~Z</span>
+warning: commands will be executed using /bin/sh
+job <span class="token number">1</span> at Thu Jan <span class="token number">18</span> <span class="token number">20</span>:27:00 <span class="token number">2024</span>
+
+$ atq <span class="token comment">#列出等待的作业</span>
+<span class="token number">2</span>	Thu Jan <span class="token number">18</span> <span class="token number">20</span>:31:00 <span class="token number">2024</span> <span class="token operator">=</span> yuan
+
+$ atrm <span class="token number">2</span> <span class="token comment">#删除等待的作业</span>
+</code></pre></div><h4 id="调度需要定期运行的脚本"><a href="#调度需要定期运行的脚本" class="header-anchor">#</a> 调度需要定期运行的脚本</h4> <h5 id="_1-编辑计划任务文件"><a href="#_1-编辑计划任务文件" class="header-anchor">#</a> 1. 编辑计划任务文件</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">crontab</span> <span class="token parameter variable">-u</span> root <span class="token parameter variable">-e</span>     <span class="token comment">#编辑用户 root 的计划任务文件（需要有 root 权限）</span>
+$ <span class="token function">crontab</span> <span class="token parameter variable">-e</span>             <span class="token comment">#编辑当前用户的计划任务文件</span>
+$ <span class="token function">crontab</span> <span class="token parameter variable">-u</span> root <span class="token parameter variable">-l</span>     <span class="token comment">#显示用户 root 的计划任务文件（需要有 root 权限）</span>
+$ <span class="token function">crontab</span> <span class="token parameter variable">-l</span>             <span class="token comment">#显示当前用户的计划任务文件</span>
+$ <span class="token function">crontab</span> <span class="token parameter variable">-r</span>             <span class="token comment">#删除当前用户的计划任务文件</span>
+</code></pre></div><p><strong>cron语法格式</strong></p> <div class="language-js extra-class"><pre class="language-js"><code># m   h   dom   mon dow  command
+<span class="token number">0</span><span class="token operator">-</span><span class="token number">59</span> <span class="token number">0</span><span class="token operator">-</span><span class="token number">23</span> <span class="token number">1</span><span class="token operator">-</span><span class="token number">31</span> <span class="token number">1</span><span class="token operator">-</span><span class="token number">12</span> <span class="token number">0</span><span class="token operator">-</span><span class="token number">7</span>  command
+</code></pre></div><table><thead><tr><th>符号</th> <th>含义</th> <th>取值范围</th></tr></thead> <tbody><tr><td>m</td> <td>表示分钟</td> <td>0-59</td></tr> <tr><td>h</td> <td>表示小时</td> <td>0-23</td></tr> <tr><td>dom</td> <td>day of month，表示日期</td> <td>1-31</td></tr> <tr><td>mon</td> <td>month，表示月份</td> <td>1-12</td></tr> <tr><td>dow</td> <td>day of week，表示星期</td> <td>0-7</td></tr> <tr><td>command</td> <td>待执行的命令</td> <td>-</td></tr></tbody></table> <p>需要特殊说明的是，dow 的取值范围为 <code>0-7</code> 共 8 个数，<code>1-6</code> 分别表示周一-周六，0 和 7 均表示<code>周日</code></p> <p>另外需要使用一些特殊符号实现灵活的配置：</p> <ul><li><code>* 代表所有值</code></li> <li><code>/ 代表“每”</code></li> <li><code>- 代表范围</code></li> <li><code>, 分割数字</code></li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment">## 指定具体执行时间</span>
+<span class="token number">2</span>   *  *  *  * <span class="token function">ls</span>    <span class="token comment">#每个小时的第 2 分钟执行一次 ls 命令</span>
+<span class="token number">30</span>  <span class="token number">7</span>  *  *  * <span class="token function">ls</span>    <span class="token comment">#每天 7：30 执行一次 ls 命令</span>
+<span class="token number">30</span> <span class="token number">20</span>  *  *  <span class="token number">2</span> <span class="token function">ls</span>    <span class="token comment">#每周二，20：30执行一次 ls 命令（0 和 7 表示星期天）</span>
+
+<span class="token comment">## 指定间隔时间</span>
+*/2 *  *  *  * <span class="token function">ls</span>    <span class="token comment">#每隔 2 分钟执行一次 ls 命令</span>
+
+<span class="token comment">## 指定时间段</span>
+<span class="token number">30</span>  <span class="token number">7</span> <span class="token number">3</span>-6 *  * <span class="token function">ls</span>    <span class="token comment">#每个月的 3，4，5，6 号的 7：30 分各执行一次 ls 命令</span>
+
+<span class="token comment">## 指定多个时间</span>
+<span class="token number">30</span>  <span class="token number">7</span> <span class="token number">3,6</span> *  * <span class="token function">ls</span>    <span class="token comment">#每月的 3 号和 6 号的 7：30 分各执行一次 ls 命令</span>
+</code></pre></div><h5 id="_2-将脚本放到预配置的cron脚本目录"><a href="#_2-将脚本放到预配置的cron脚本目录" class="header-anchor">#</a> 2.将脚本放到预配置的cron脚本目录</h5> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">ls</span> /etc/cron.*ly
+/etc/cron.daily:
+0anacron  apport  apt-compat  cracklib-runtime  dpkg  <span class="token function">logrotate</span>  man-db  samba
+
+/etc/cron.hourly:
+
+/etc/cron.monthly:
+0anacron
+
+/etc/cron.weekly:
+0anacron  man-db
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">ls</span> /var/spool/anacron/
+cron.daily  cron.monthly  cron.weekly
+</code></pre></div><blockquote><p>cron.daily  cron.monthly  cron.weekly由anacron调度，anacron能确保关机再开启后，尽快运行错过的作业</p></blockquote></div></div> <!----> <div class="page-edit"><!----> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2024/01/18, 21:49:24</span></div></div> <div class="page-nav-wapper"><!----> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog-pub/pages/97d582/" class="prev">shell</a></span> <span class="next"><a href="/blog-pub/pages/389ff7/">java基础</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2022-2024
+    <span>Esqbs</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog-pub/assets/js/app.b54a84d7.js" defer></script><script src="/blog-pub/assets/js/2.d3978339.js" defer></script><script src="/blog-pub/assets/js/3.3ba4034a.js" defer></script><script src="/blog-pub/assets/js/42.85eb831d.js" defer></script>
+  </body>
+</html>
